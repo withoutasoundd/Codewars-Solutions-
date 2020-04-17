@@ -1,0 +1,215 @@
+*5 kyu*
+*Moving Zeros To The End*
+def move_zeros(array):
+    nb=0
+    r=[]
+    for i in range(len(array)):
+        if array[i]==0 and isinstance(array[i],bool)==False:
+                nb+=1
+        else:
+            r.append(array[i])
+    for k in range(nb):
+        r.append(0)
+    return r
+ ------------------------
+ *6 kyu
+Write Number in Expanded Form*
+def expanded_form(num):
+    st=str(num)
+    s=""
+    for i in range(len(st)):
+        if st[i]!="0":
+                v=st[i]
+                for k in range(i+1,len(st)):
+                    v+="0"
+                if int(v)!=0:
+                    if i==0:
+                        s+=v
+                    else:
+                        s+=" + "+v
+    return s
+ ------------------------
+ 8 kyu
+Even or Odd
+def even_or_odd(number):
+    if number%2==0:
+        return "Even"
+    else:
+        return "Odd"
+         ------------------------
+5 kyu
+Where my anagrams at?
+def anagrams(word, words):
+    s=[]
+    for i in range(len(words)):
+        k=True
+        for v in range(len(word)):
+            for p in range(len(words[i])):
+                if words[i][p] not in word:
+                    k=False
+                    break
+            if word[v] not in words[i] or len(words[i])>len(word):
+                k=False
+                break
+        if k==True:
+            s.append(words[i])
+    return s
+*-----------------------------*
+5 kyu
+Not very secure
+def alphanumeric(password):
+    N=True
+    if len(password)==0:
+        N=False
+    else:
+        for i in range(len(password)):
+            if password[i].isalpha()==False and password[i].isnumeric()==False:
+                N=False
+    return N    
+-----------------------------
+5 kyu
+Rot13
+def rot13(message):
+    dic={"A":"N",
+    "B":"O",
+    "C":"P",
+    "D":"Q",
+    "E":"R",
+    "F":"S",
+    "G":"T",
+    "H":"U",
+    "I":"V",
+    "J":"W",
+    "K":"X",
+    "L":"Y",
+    "M":"Z",
+    "N":"A",
+    "O":"B",
+    "P":"C",
+    "Q":"D",
+    "R":"E",
+    "S":"F",
+    "T":"G",
+    "U":"H",
+    "V":"I",
+    "W":"J",
+    "X":"K",
+    "Y":"L",
+    "Z":"M"}
+    s=""
+    for i in range(len(message)):
+        if message[i].isalpha():
+            if message[i].isupper():
+                s+=dic.get(message[i],0)
+            elif message[i].islower():
+                s+=dic.get(message[i].upper(),0).lower()
+                
+        else:
+            s+=message[i]
+    return s
+ ---------------------------------
+ 6 kyu
+Valid Phone Number
+def validPhoneNumber(phoneNumber):
+    v=True
+    if phoneNumber[0]!="(" or phoneNumber[4]!=")":
+        v=False
+    elif phoneNumber[5].isspace()==False or phoneNumber[9]!="-":
+        v=False
+    elif phoneNumber[1].isnumeric()==False or phoneNumber[2].isnumeric()==False or phoneNumber[3].isnumeric()==False or phoneNumber[6].isnumeric()==False or phoneNumber[7].isnumeric()==False or phoneNumber[8].isnumeric()==False or phoneNumber[10].isnumeric()==False or phoneNumber[11].isnumeric()==False or phoneNumber[12].isnumeric()==False or phoneNumber[13].isnumeric()==False:
+        v=False
+    if len(phoneNumber)==14:
+        return v 
+    else:
+        return False
+  -----------------------------
+ 6 kyu
+Multiples of 3 or 5
+def solution(number):
+    s=0
+    for i in range(number):
+        if i%3==0 or i%5==0:
+            s+=i
+    return s
+-----------------------------
+6 kyu
+Persistent Bugger.
+def persistence(n):
+    k=str(n)
+    nb=0
+    while len(k)>1:
+        s=1
+        for i in range(len(k)):
+            s*=int(k[i])
+        k=str(s)
+        print(s)
+        nb+=1
+    return nb
+
+  --------------------------
+  6 kyu
+Roman Numerals Decoder
+def solution(roman):
+    dic={"M":1000,"D":500,"C":100,"L":50,"X":10,"V":5,"I":1}
+    s=0
+    for i in range(len(roman)):
+        for k,v in dic.items():
+            if k==roman[i]:
+                s+=v
+                if dic[roman[i]]>dic[roman[i-1]] and i>0:
+                    s=s-2*dic[roman[i-1]]
+    return s
+ --------------------------
+ 7 kyu
+Round to the next multiple of 5.
+def round_to_next5(n):
+    i=0
+    while True:
+        if (n+i)%5==0:
+            break
+        else:
+            i+=1
+    return n+i
+  
+ ------------------------------
+ 6 kyu
+Equal Sides Of An Array
+def find_even_index(arr):
+    k=-1
+    sl=0
+    for i in range(len(arr)):
+        sr=0
+        for v in range(i+1,len(arr)):
+            sr+=arr[v]
+        if sr==sl:
+            return i
+        sl+=arr[i]
+        
+    return k
+ ------------------------------------
+ 7 kyu
+Summing a number's digits
+def sum_digits(number):
+    v=str(number)
+    s=0
+    for i in range(len(v)):
+        if v[i].isnumeric():
+            s+=int(v[i])
+    return s
+
+------------------------------------
+
+7 kyu
+Odd or Even?
+def odd_or_even(arr):
+    s=0
+    for i in range(len(arr)):
+        s+=arr[i]
+    if s%2==0:
+        return "even"
+    else:
+        return "odd"
+        
+        
+
+ 
